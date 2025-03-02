@@ -86,8 +86,8 @@ export default function Home() {
     const userMessage: Message = {
       role: 'user',
       option: 0,
-      content: content,
-      explain: '',
+      content: '',
+      explain: content,
     };
 
     setMessages((prev) => [...prev, userMessage]);
