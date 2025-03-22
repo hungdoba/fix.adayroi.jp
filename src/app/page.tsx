@@ -122,9 +122,6 @@ export default function Home() {
         throw new Error('Invalid response format');
       }
 
-      console.log(parsedResult);
-
-      // Add all items from parsedResult to messages
       setMessages((prev) => [...prev, ...parsedResult]);
       setContent('');
     } catch (error) {

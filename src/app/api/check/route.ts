@@ -63,7 +63,6 @@ export async function POST(request: Request) {
     });
 
     const result = await model.generateContent(prompt);
-    console.log(result.response.text());
     return NextResponse.json({
       response: result.response.text(),
     });
