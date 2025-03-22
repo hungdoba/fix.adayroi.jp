@@ -1,20 +1,18 @@
 import type { Metadata } from 'next';
-import { Geist, Geist_Mono } from 'next/font/google';
+import { Roboto_Mono } from 'next/font/google';
 import './globals.css';
+import Providers from './providers';
+import Navbar from '@/components/navbar';
 
-const geistSans = Geist({
-  variable: '--font-geist-sans',
+export const roboto_mono = Roboto_Mono({
   subsets: ['latin'],
-});
-
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
-  subsets: ['latin'],
+  display: 'swap',
 });
 
 export const metadata: Metadata = {
-  title: 'Japanese-Vietnamese BrSE Support',
-  description: 'Translate Japanese to Vietnamese and vice versa.',
+  title: 'Adayroi - Vietnamese news in Japan',
+  description:
+    'Update japanese sentences to be more polite and suitable for daily conversations with customers.',
 };
 
 export default function RootLayout({
@@ -24,10 +22,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+      <body className={`${roboto_mono.className} antialiased`}>
+        <Providers>
+          <div className="md:container h-screen mx-auto w-full md:max-w-screen-md">
+            <Navbar />
+            {children}
+          </div>
+        </Providers>
       </body>
     </html>
   );
